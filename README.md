@@ -1,4 +1,3 @@
-# randompasserby1.github.io
 <html>
 <head>
 	<title>Gaming computer</title>
