@@ -1,0 +1,2600 @@
+<!DOCTYPE html>
+<!-- saved from url=(0108)https://www.evernote.com/shard/s513/sh/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2 -->
+<html><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="en:locale" content="en">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta property="og:title" content="UNIT 3">
+      <meta property="og:type" content="article">
+      <meta property="og:description" content="I / Đặt lại CSS ban đầu cho các thẻ HTML  Vì mỗi thẻ HTML khi được viết ra sẽ tự động có những khoảng cách khác nhau nên ta phải CSS đặt lại cho các thẻ không có những khoảng cách đó nữa VD : thẻ h1 t...">
+      <meta property="og:url" content="https://www.evernote.com/shard/s513/sh/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2">
+      <meta property="og:image" content="https://cdn1.evernote.com/evernote.com/img/social-meta/shared-note-thumbnail.png">
+      <meta property="og:site_name" content="Evernote">
+      <meta property="og:created_time" content="1496481474000">
+      <meta property="og:updated_time" content="1498129118000">
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:site" content="@evernote">
+      <link rel="Shortcut Icon" href="https://www.evernote.com/favicon.ico" type="image/x-icon">
+
+    <title>UNIT 3</title>
+
+    <!-- Google Analytics -->
+    <!-- Google Analytics -->
+<script src="./UNIT 3_files/utag.js" type="text/javascript" async=""></script><script async="" src="./UNIT 3_files/analytics.js"></script><script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+window.ga('create', 'UA-285778-5',
+    'auto', {});
+window.ga('require', 'displayfeatures');
+
+
+/* <![CDATA[ */
+  
+  window.ga('set', 'location', 'https://www.evernote.com/singleNote');
+  
+/* ]]> */
+</script>
+<!-- End Google Analytics -->
+<script type="text/javascript">
+      window.ga('set', 'dimension1',
+          '');
+      window.ga('set', 'dimension2',
+          '');
+    </script>
+    <script type="text/javascript">
+  window.ga('send', 'pageview', '/singleNote');
+</script>
+<!-- End of Google Analytics -->
+  <link rel="stylesheet" href="./UNIT 3_files/-315566005.css"><link rel="stylesheet" href="./UNIT 3_files/-1068937825.css"><style type="text/css">/* Copyright 2012, Evernote Corp
+ *
+ * author: Andrei Thorp, athorp@evernote.com
+ */
+/*** Evernote CSS Framework ***/
+#lightbox-container {
+  position: absolute;
+  z-index: 2147483647;
+  visibility: hidden;
+}
+#lightbox-container ul {
+  list-style-type: disc;
+}
+#lightbox-container ul li {
+  margin-top: 5px;
+}
+#lightbox-container:not(.ie7),
+#lightbox-container:not(.ie8) {
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+}
+#lightbox-container.shown {
+  visibility: visible;
+}
+#lightbox-container.shown:not(.ie7),
+#lightbox-container.shown:not(.ie8) {
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+  -webkit-transition: opacity 0.33s linear;
+  -moz-transition: opacity 0.33s linear;
+  -ms-transition: opacity 0.33s linear;
+  -o-transition: opacity 0.33s linear;
+  transition: opacity 0.33s linear;
+}
+#lightbox-glass,
+#lightbox-fake-border,
+#lightbox-holder {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: inherit;
+}
+#lightbox-glass {
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: alpha(opacity=40);
+  background-color: #000000;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#888888), to(#000000));
+  background-image: -webkit-radial-gradient(circle, #888888, #000000);
+  background-image: -moz-radial-gradient(circle, #888888, #000000);
+  background-image: -ms-radial-gradient(circle, #888888, #000000);
+  background-image: -o-radial-gradient(circle, #888888, #000000);
+  background-repeat: no-repeat;
+}
+#lightbox-fake-border {
+  margin: auto;
+  z-index: inherit;
+}
+#lightbox-fake-border.dark {
+  background-color: black;
+  opacity: 0.3;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  filter: alpha(opacity=30);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-fake-border.light {
+  background-color: transparent;
+}
+#lightbox-fake-border.shaded,
+#lightbox-fake-border.shadedSquare {
+  background-color: transparent;
+}
+#lightbox-holder {
+  background-color: white;
+  margin: auto;
+  z-index: inherit;
+}
+#lightbox-holder.light {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-holder.shaded,
+#lightbox-holder.shadedSquare {
+  -webkit-box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+}
+#lightbox-holder.shaded {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-holder.shadedSquare {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.lightbox-iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  margin: auto;
+  overflow: hidden;
+}
+#lightbox-close {
+  cursor: pointer;
+  position: absolute;
+}
+#lightbox-close.dark {
+  height: 38px;
+  right: -20px;
+  top: -20px;
+  width: 38px;
+}
+@media all {
+  #lightbox-close.dark {
+    background:  url("/redesign/global/img/close-dialog-dark-icon.png") no-repeat;
+    -webkit-background-size: 38px 38px;
+    -moz-background-size: 38px 38px;
+    -o-background-size: 38px 38px;
+    background-size: 38px 38px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #lightbox-close.dark {
+    background:  url("/redesign/global/img/close-dialog-dark-icon@2x.png") no-repeat;
+    -webkit-background-size: 38px 38px;
+    -moz-background-size: 38px 38px;
+    -o-background-size: 38px 38px;
+    background-size: 38px 38px;
+  }
+}
+#lightbox-close.light,
+#lightbox-close.shaded,
+#lightbox-close.shadedSquare {
+  height: 27px;
+  right: -12px;
+  top: -12px;
+  width: 27px;
+}
+@media all {
+  #lightbox-close.light,
+  #lightbox-close.shaded,
+  #lightbox-close.shadedSquare {
+    background:  url("/redesign/global/img/close-dialog-light-icon.png") center;
+    -webkit-background-size: 27px 27px;
+    -moz-background-size: 27px 27px;
+    -o-background-size: 27px 27px;
+    background-size: 27px 27px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #lightbox-close.light,
+  html:not(.ie8) #lightbox-close.shaded,
+  html:not(.ie8) #lightbox-close.shadedSquare {
+    background:  url("/redesign/global/img/close-dialog-light-icon@2x.png") center;
+    -webkit-background-size: 27px 27px;
+    -moz-background-size: 27px 27px;
+    -o-background-size: 27px 27px;
+    background-size: 27px 27px;
+  }
+}
+.fullscreen #lightbox-close {
+  top: 5px;
+  right: 5px;
+}
+.lightbox-modal {
+  overflow: hidden;
+}
+</style><style type="text/css">/* Copyright 2012, Evernote Corp
+ *
+ * author: Andrei Thorp, athorp@evernote.com
+ */
+/*** Evernote CSS Framework ***/
+#lightbox-container {
+  position: absolute;
+  z-index: 2147483647;
+  visibility: hidden;
+}
+#lightbox-container ul {
+  list-style-type: disc;
+}
+#lightbox-container ul li {
+  margin-top: 5px;
+}
+#lightbox-container:not(.ie7),
+#lightbox-container:not(.ie8) {
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+}
+#lightbox-container.shown {
+  visibility: visible;
+}
+#lightbox-container.shown:not(.ie7),
+#lightbox-container.shown:not(.ie8) {
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+  -webkit-transition: opacity 0.33s linear;
+  -moz-transition: opacity 0.33s linear;
+  -ms-transition: opacity 0.33s linear;
+  -o-transition: opacity 0.33s linear;
+  transition: opacity 0.33s linear;
+}
+#lightbox-glass,
+#lightbox-fake-border,
+#lightbox-holder {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: inherit;
+}
+#lightbox-glass {
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: alpha(opacity=40);
+  background-color: #000000;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#888888), to(#000000));
+  background-image: -webkit-radial-gradient(circle, #888888, #000000);
+  background-image: -moz-radial-gradient(circle, #888888, #000000);
+  background-image: -ms-radial-gradient(circle, #888888, #000000);
+  background-image: -o-radial-gradient(circle, #888888, #000000);
+  background-repeat: no-repeat;
+}
+#lightbox-fake-border {
+  margin: auto;
+  z-index: inherit;
+}
+#lightbox-fake-border.dark {
+  background-color: black;
+  opacity: 0.3;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  filter: alpha(opacity=30);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-fake-border.light {
+  background-color: transparent;
+}
+#lightbox-fake-border.shaded,
+#lightbox-fake-border.shadedSquare {
+  background-color: transparent;
+}
+#lightbox-holder {
+  background-color: white;
+  margin: auto;
+  z-index: inherit;
+}
+#lightbox-holder.light {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-holder.shaded,
+#lightbox-holder.shadedSquare {
+  -webkit-box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+}
+#lightbox-holder.shaded {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-holder.shadedSquare {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.lightbox-iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  margin: auto;
+  overflow: hidden;
+}
+#lightbox-close {
+  cursor: pointer;
+  position: absolute;
+}
+#lightbox-close.dark {
+  height: 38px;
+  right: -20px;
+  top: -20px;
+  width: 38px;
+}
+@media all {
+  #lightbox-close.dark {
+    background:  url("/redesign/global/img/close-dialog-dark-icon.png") no-repeat;
+    -webkit-background-size: 38px 38px;
+    -moz-background-size: 38px 38px;
+    -o-background-size: 38px 38px;
+    background-size: 38px 38px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #lightbox-close.dark {
+    background:  url("/redesign/global/img/close-dialog-dark-icon@2x.png") no-repeat;
+    -webkit-background-size: 38px 38px;
+    -moz-background-size: 38px 38px;
+    -o-background-size: 38px 38px;
+    background-size: 38px 38px;
+  }
+}
+#lightbox-close.light,
+#lightbox-close.shaded,
+#lightbox-close.shadedSquare {
+  height: 27px;
+  right: -12px;
+  top: -12px;
+  width: 27px;
+}
+@media all {
+  #lightbox-close.light,
+  #lightbox-close.shaded,
+  #lightbox-close.shadedSquare {
+    background:  url("/redesign/global/img/close-dialog-light-icon.png") center;
+    -webkit-background-size: 27px 27px;
+    -moz-background-size: 27px 27px;
+    -o-background-size: 27px 27px;
+    background-size: 27px 27px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #lightbox-close.light,
+  html:not(.ie8) #lightbox-close.shaded,
+  html:not(.ie8) #lightbox-close.shadedSquare {
+    background:  url("/redesign/global/img/close-dialog-light-icon@2x.png") center;
+    -webkit-background-size: 27px 27px;
+    -moz-background-size: 27px 27px;
+    -o-background-size: 27px 27px;
+    background-size: 27px 27px;
+  }
+}
+.fullscreen #lightbox-close {
+  top: 5px;
+  right: 5px;
+}
+.lightbox-modal {
+  overflow: hidden;
+}
+</style><style type="text/css">/* Copyright 2012, Evernote Corp
+ *
+ * author: Andrei Thorp, athorp@evernote.com
+ */
+/*** Evernote CSS Framework ***/
+#lightbox-container {
+  position: absolute;
+  z-index: 2147483647;
+  visibility: hidden;
+}
+#lightbox-container ul {
+  list-style-type: disc;
+}
+#lightbox-container ul li {
+  margin-top: 5px;
+}
+#lightbox-container:not(.ie7),
+#lightbox-container:not(.ie8) {
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+}
+#lightbox-container.shown {
+  visibility: visible;
+}
+#lightbox-container.shown:not(.ie7),
+#lightbox-container.shown:not(.ie8) {
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+  -webkit-transition: opacity 0.33s linear;
+  -moz-transition: opacity 0.33s linear;
+  -ms-transition: opacity 0.33s linear;
+  -o-transition: opacity 0.33s linear;
+  transition: opacity 0.33s linear;
+}
+#lightbox-glass,
+#lightbox-fake-border,
+#lightbox-holder {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: inherit;
+}
+#lightbox-glass {
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: alpha(opacity=40);
+  background-color: #000000;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#888888), to(#000000));
+  background-image: -webkit-radial-gradient(circle, #888888, #000000);
+  background-image: -moz-radial-gradient(circle, #888888, #000000);
+  background-image: -ms-radial-gradient(circle, #888888, #000000);
+  background-image: -o-radial-gradient(circle, #888888, #000000);
+  background-repeat: no-repeat;
+}
+#lightbox-fake-border {
+  margin: auto;
+  z-index: inherit;
+}
+#lightbox-fake-border.dark {
+  background-color: black;
+  opacity: 0.3;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  filter: alpha(opacity=30);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-fake-border.light {
+  background-color: transparent;
+}
+#lightbox-fake-border.shaded,
+#lightbox-fake-border.shadedSquare {
+  background-color: transparent;
+}
+#lightbox-holder {
+  background-color: white;
+  margin: auto;
+  z-index: inherit;
+}
+#lightbox-holder.light {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-holder.shaded,
+#lightbox-holder.shadedSquare {
+  -webkit-box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+}
+#lightbox-holder.shaded {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#lightbox-holder.shadedSquare {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.lightbox-iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  margin: auto;
+  overflow: hidden;
+}
+#lightbox-close {
+  cursor: pointer;
+  position: absolute;
+}
+#lightbox-close.dark {
+  height: 38px;
+  right: -20px;
+  top: -20px;
+  width: 38px;
+}
+@media all {
+  #lightbox-close.dark {
+    background:  url("/redesign/global/img/close-dialog-dark-icon.png") no-repeat;
+    -webkit-background-size: 38px 38px;
+    -moz-background-size: 38px 38px;
+    -o-background-size: 38px 38px;
+    background-size: 38px 38px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #lightbox-close.dark {
+    background:  url("/redesign/global/img/close-dialog-dark-icon@2x.png") no-repeat;
+    -webkit-background-size: 38px 38px;
+    -moz-background-size: 38px 38px;
+    -o-background-size: 38px 38px;
+    background-size: 38px 38px;
+  }
+}
+#lightbox-close.light,
+#lightbox-close.shaded,
+#lightbox-close.shadedSquare {
+  height: 27px;
+  right: -12px;
+  top: -12px;
+  width: 27px;
+}
+@media all {
+  #lightbox-close.light,
+  #lightbox-close.shaded,
+  #lightbox-close.shadedSquare {
+    background:  url("/redesign/global/img/close-dialog-light-icon.png") center;
+    -webkit-background-size: 27px 27px;
+    -moz-background-size: 27px 27px;
+    -o-background-size: 27px 27px;
+    background-size: 27px 27px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #lightbox-close.light,
+  html:not(.ie8) #lightbox-close.shaded,
+  html:not(.ie8) #lightbox-close.shadedSquare {
+    background:  url("/redesign/global/img/close-dialog-light-icon@2x.png") center;
+    -webkit-background-size: 27px 27px;
+    -moz-background-size: 27px 27px;
+    -o-background-size: 27px 27px;
+    background-size: 27px 27px;
+  }
+}
+.fullscreen #lightbox-close {
+  top: 5px;
+  right: 5px;
+}
+.lightbox-modal {
+  overflow: hidden;
+}
+/**
+ * Copyright 2012-2015 Evernote Corporation.
+ */
+/* Copyright 2012, Evernote Corp
+ *
+ * author: Andrei Thorp, athorp@evernote.com
+ */
+/*** Evernote CSS Framework ***/
+#imggal-container {
+  position: relative;
+  z-index: 2147483647;
+}
+.hidden {
+  display: none;
+}
+#imggal-glass {
+  position: fixed;
+  z-index: inherit;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  opacity: 0.95;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95);
+  filter: alpha(opacity=95);
+}
+#imggal-container:-moz-full-screen #imggal-glass {
+  background-color: #ffffff;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+}
+#imggal-container:-webkit-full-screen #imggal-glass {
+  background-color: #ffffff;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+}
+#imggal-top {
+  position: fixed;
+  z-index: inherit;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+#imggal-top.nav-full {
+  display: none;
+}
+#imggal-top .close-icon {
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  height: 40px;
+  width: 40px;
+  margin: 0 !important;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  background-position: center center !important;
+  background-color: white !important;
+}
+@media all {
+  #imggal-top .close-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #imggal-top .close-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+#imggal-top .close-icon:hover {
+  border-color: #2dbe60;
+}
+@media all {
+  #imggal-top .close-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #imggal-top .close-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+#imggal-top .close-icon:active {
+  border-color: #28a955;
+}
+@media all {
+  #imggal-top .close-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #imggal-top .close-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+#imggal-nav,
+#imggal-nav-glass {
+  position: fixed;
+  z-index: inherit;
+  left: 0px;
+  right: 0px;
+  bottom: 10px;
+  width: 232px;
+  height: 52px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+#imggal-nav.nav-full,
+#imggal-nav-glass.nav-full {
+  width: 180px;
+}
+#imggal-nav.nav-no-full,
+#imggal-nav-glass.nav-no-full {
+  width: 192px;
+}
+#imggal-nav.nav-hidden,
+#imggal-nav-glass.nav-hidden {
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+}
+html.ie7 #imggal-nav,
+html.ie7 #imggal-nav-glass {
+  left: 50%;
+  margin-left: -76px;
+}
+#imggal-nav-glass {
+  background-color: #ffffff;
+  border: 1px solid #f1f1f1;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  opacity: 0.96;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=96);
+  filter: alpha(opacity=96);
+}
+.icons {
+  position: static;
+  float: left;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.icons:hover {
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+}
+.icons.grayed-out,
+.icons.grayed-out:hover {
+  cursor: default;
+  opacity: 0.3;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  filter: alpha(opacity=30);
+}
+html.ie8 .nav-hidden > .icons {
+  filter: inherit;
+}
+/* nav bar icons  */
+.prev-icon {
+  height: 24px;
+  width: 24px;
+  margin-left: 11px;
+  margin-right: 13px;
+}
+@media all {
+  .prev-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .prev-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .prev-icon:hover:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .prev-icon:hover:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .prev-icon:active:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .prev-icon:active:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.next-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 12px;
+}
+@media all {
+  .next-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .next-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .next-icon:hover:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .next-icon:hover:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .next-icon:active:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .next-icon:active:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.download-icon {
+  height: 24px;
+  width: 24px;
+  margin-left: 14px;
+  margin-right: 14px;
+}
+@media all {
+  .download-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .download-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .download-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .download-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .download-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .download-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.new-tab-icon {
+  height: 24px;
+  width: 24px;
+  margin-left: 17px;
+  margin-right: 13px;
+}
+@media all {
+  .new-tab-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .new-tab-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .new-tab-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .new-tab-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .new-tab-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .new-tab-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.full-screen-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 16px;
+}
+@media all {
+  .full-screen-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .full-screen-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .full-screen-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .full-screen-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .full-screen-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .full-screen-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.nav-full > .full-screen-icon,
+.nav-no-full > .full-screen-icon {
+  display: none;
+}
+.nav-full > .close-icon,
+.nav-full > .download-icon {
+  display: none;
+}
+.close-full-screen-icon {
+  display: none;
+}
+.nav-full > .close-full-screen-icon {
+  display: block;
+  height: 24px;
+  width: 24px;
+  margin-right: 16px;
+}
+@media all {
+  .nav-full > .close-full-screen-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .nav-full > .close-full-screen-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .nav-full > .close-full-screen-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .nav-full > .close-full-screen-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .nav-full > .close-full-screen-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .nav-full > .close-full-screen-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.gallery-divider {
+  float: left;
+  margin-top: 12px;
+  margin-bottom: 13px;
+  height: 27px;
+  border-left: 1px solid #e1e1e1;
+}
+#imggal-images {
+  top: 25px;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  position: fixed;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: inherit;
+}
+#imggal-container:-moz-full-screen #imggal-images {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#imggal-container:-webkit-full-screen #imggal-images {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.image {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  position: absolute;
+  transition: transform 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+}
+.image.off-screen {
+  transition: transform 0.2s ease, visibility 0s linear 0.2s;
+  -moz-transition: -moz-transform 0.2s ease, visibility 0s linear 0.2s;
+  -webkit-transition: -webkit-transform 0.2s ease, visibility 0s linear 0.2s;
+  visibility: hidden;
+}
+.image.off-screen.dragged {
+  visibility: visible;
+}
+.image.dragged,
+.image.no-swipe {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.imggal-modal {
+  overflow: hidden;
+}
+.a11y-only {
+  /* http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/ */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute !important;
+}
+/* "Evernote Green" */
+.focus-tooltip-ButtonTooltip-tooltip-container {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  background: #606060;
+  border-radius: 2px;
+  color: #d9d9d9;
+  cursor: default;
+  padding: 4px 7px;
+  position: fixed;
+  white-space: nowrap;
+  z-index: 1;
+}
+.focus-tooltip-ButtonTooltip-arrow {
+  position: absolute;
+}
+.focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-down,
+.focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-up {
+  height: 4px;
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+  width: 10px;
+}
+.focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-down {
+  bottom: -4px;
+}
+@media all {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-down {
+    background:  url("/redesign/global/js/focus/img/arrow_down_darkgray_10x4.png") center;
+    background-size: 10px 4px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-down {
+    background:  url("/redesign/global/js/focus/img/arrow_down_darkgray_10x4@2x.png") center;
+    background-size: 10px 4px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-moz-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-o-min-device-pixel-ratio: 3/2), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-webkit-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-resolution: 1.5dppx) {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-down {
+    background:  url("/redesign/global/js/focus/img/arrow_down_darkgray_10x4@2x.png") center;
+    background-size: 10px 4px;
+  }
+}
+.focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-up {
+  top: -4px;
+}
+@media all {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-up {
+    background:  url("/redesign/global/js/focus/img/arrow_up_darkgray_10x4.png") center;
+    background-size: 10px 4px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-up {
+    background:  url("/redesign/global/js/focus/img/arrow_up_darkgray_10x4@2x.png") center;
+    background-size: 10px 4px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-moz-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-o-min-device-pixel-ratio: 3/2), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-webkit-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-resolution: 1.5dppx) {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-up {
+    background:  url("/redesign/global/js/focus/img/arrow_up_darkgray_10x4@2x.png") center;
+    background-size: 10px 4px;
+  }
+}
+.focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-left,
+.focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-right {
+  bottom: 0;
+  height: 10px;
+  margin: auto 0;
+  top: 0;
+  width: 4px;
+}
+.focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-left {
+  left: -4px;
+}
+@media all {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-left {
+    background:  url("/redesign/global/js/focus/img/arrow_left_darkgray_10x4.png") center;
+    background-size: 4px 10px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-left {
+    background:  url("/redesign/global/js/focus/img/arrow_left_darkgray_10x4@2x.png") center;
+    background-size: 4px 10px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-moz-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-o-min-device-pixel-ratio: 3/2), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-webkit-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-resolution: 1.5dppx) {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-left {
+    background:  url("/redesign/global/js/focus/img/arrow_left_darkgray_10x4@2x.png") center;
+    background-size: 4px 10px;
+  }
+}
+.focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-right {
+  right: -4px;
+}
+@media all {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-right {
+    background:  url("/redesign/global/js/focus/img/arrow_right_darkgray_10x4.png") center;
+    background-size: 4px 10px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-right {
+    background:  url("/redesign/global/js/focus/img/arrow_right_darkgray_10x4@2x.png") center;
+    background-size: 4px 10px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-moz-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-o-min-device-pixel-ratio: 3/2), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-webkit-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-resolution: 1.5dppx) {
+  .focus-tooltip-ButtonTooltip-arrow.focus-tooltip-ButtonTooltip-right {
+    background:  url("/redesign/global/js/focus/img/arrow_right_darkgray_10x4@2x.png") center;
+    background-size: 4px 10px;
+  }
+}
+.a11y-only {
+  /* http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/ */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute !important;
+}
+.focus-tooltip-WithTooltip-container {
+  position: relative;
+}
+.focus-tooltip-WithTooltip-tooltip-transition-enter {
+  opacity: 0;
+}
+.focus-tooltip-WithTooltip-tooltip-transition-enter.focus-tooltip-WithTooltip-tooltip-transition-enter-active {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+.focus-tooltip-WithTooltip-tooltip-transition-leave {
+  opacity: 1;
+}
+.focus-tooltip-WithTooltip-tooltip-transition-leave.focus-tooltip-WithTooltip-tooltip-transition-leave-active {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.a11y-only {
+  /* http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/ */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute !important;
+}
+/* "Evernote Green" */
+.FocusCommunicationTooltip-container {
+  width: 294px;
+  background-color: #46c977;
+  opacity: 0.95;
+  position: fixed;
+  border-radius: 4px;
+  z-index: 201;
+}
+.FocusCommunicationTooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.FocusCommunicationTooltip-arrow.FocusCommunicationTooltip-TOP {
+  top: -8px;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #46c977;
+  border-left: 8px solid transparent;
+}
+.FocusCommunicationTooltip-arrow.FocusCommunicationTooltip-RIGHT {
+  border-top: 8px solid transparent;
+  right: -8px;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #46c977;
+}
+.FocusCommunicationTooltip-arrow.FocusCommunicationTooltip-LEFT {
+  border-top: 8px solid transparent;
+  border-right: 8px solid #46c977;
+  border-bottom: 8px solid transparent;
+  left: -8px;
+}
+.FocusCommunicationTooltip-message-container {
+  margin: 20px 18px 21px;
+}
+.FocusCommunicationTooltip-header-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: caecilia, times, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #106b45;
+  margin-bottom: 10px;
+}
+.FocusCommunicationTooltip-content-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  line-height: 19px;
+}
+.FocusCommunicationTooltip-dismissal-container {
+  cursor: pointer;
+  height: 34px;
+  text-align: right;
+  background-color: #1aba52;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.FocusCommunicationTooltip-dismissal-container:hover {
+  background-color: #19ae4d;
+}
+.FocusCommunicationTooltip-dismissal-container:active {
+  background-color: #17a147;
+}
+.FocusCommunicationTooltip-dismissal-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #106b45;
+  display: inline-block;
+  padding-top: 10px;
+  vertical-align: top;
+}
+.FocusCommunicationTooltip-circle-button-checkmark {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin: 7px 10px 0 8px;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #118d48 !important;
+}
+@media all {
+  .FocusCommunicationTooltip-circle-button-checkmark {
+    background:  url(/web-frontend/4a632dc90ebcb5b2b8c6574df0778d5b.png) no-repeat center;
+    background-size: 10px 7px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  .FocusCommunicationTooltip-circle-button-checkmark {
+    background:  url(/web-frontend/8eda4c7c0a49688e92b662386746a2e3.png) no-repeat center;
+    background-size: 10px 7px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-moz-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-o-min-device-pixel-ratio: 3/2), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (-webkit-min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-device-pixel-ratio: 1.5), all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) and (min-resolution: 1.5dppx) {
+  .FocusCommunicationTooltip-circle-button-checkmark {
+    background:  url(/web-frontend/8eda4c7c0a49688e92b662386746a2e3.png) no-repeat center;
+    background-size: 10px 7px;
+  }
+}
+.a11y-only {
+  /* http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/ */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute !important;
+}
+.ViewAsPresentationDialog-container {
+  text-align: center;
+}
+.ViewAsPresentationDialog-container:first-child {
+  padding-top: 40px;
+}
+.ViewAsPresentationDialog-container:last-child {
+  padding-bottom: 30px;
+}
+.ViewAsPresentationDialog-container h1 {
+  font-size: 25px;
+  font-family: caecilia, Times;
+  font-style: normal;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 10px;
+}
+:lang(zh-cn) .ViewAsPresentationDialog-container h1 {
+  font-family: caecilia, Hiragino Sans GB, STHeiti, Microsoft Yahei, helvetica, arial, sans-serif;
+}
+:lang(ja) .ViewAsPresentationDialog-container h1 {
+  font-family: caecilia, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, "MS P\30B4\30B7\30C3\30AF", "MS PGothic", helvetica, arial, sans-serif;
+}
+.ViewAsPresentationDialog-container p {
+  font-size: 14px;
+  font-family: gotham, 'helvetica, arial, sans-serif';
+  font-style: normal;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 18px;
+  display: inline-block;
+  width: 380px;
+}
+:lang(zh-cn) .ViewAsPresentationDialog-container p {
+  font-family: gotham, Hiragino Sans GB, STHeiti, Microsoft Yahei, helvetica, arial, sans-serif;
+}
+:lang(ja) .ViewAsPresentationDialog-container p {
+  font-family: gotham, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, "MS P\30B4\30B7\30C3\30AF", "MS PGothic", helvetica, arial, sans-serif;
+}
+.ViewAsPresentationDialog-icon path {
+  fill: #3b3b3b;
+}
+.ViewAsPresentationDialog-button {
+  display: inline-block;
+  border: 1px solid #2dbe60;
+  border-radius: 3px;
+  min-width: 235px;
+  font-size: 15px;
+  font-family: gotham, 'helvetica, arial, sans-serif';
+  font-style: normal;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 34px;
+  cursor: pointer;
+}
+:lang(zh-cn) .ViewAsPresentationDialog-button {
+  font-family: gotham, Hiragino Sans GB, STHeiti, Microsoft Yahei, helvetica, arial, sans-serif;
+}
+:lang(ja) .ViewAsPresentationDialog-button {
+  font-family: gotham, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, "MS P\30B4\30B7\30C3\30AF", "MS PGothic", helvetica, arial, sans-serif;
+}
+.ViewAsPresentationDialog-button.ViewAsPresentationDialog-green {
+  background-color: #2dbe60;
+  color: white;
+  margin-top: 20px;
+}
+.ViewAsPresentationDialog-button.ViewAsPresentationDialog-white {
+  background-color: white;
+  color: #2dbe60;
+  margin-top: 14px;
+}
+.a11y-only {
+  /* http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/ */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute !important;
+}
+.PresentationModeBanner-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 60px;
+  background-color: #2dbe60;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Show above gray footer in note mode. FIXME: The interaction between the two footers
+   * is nasty and needs design love if this banner will become permanent. */
+  z-index: 1;
+}
+.PresentationModeBanner-presentation-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.PresentationModeBanner-presentation-icon path {
+  fill: white;
+}
+.PresentationModeBanner-text {
+  font-size: 15px;
+  font-family: gotham, 'helvetica, arial, sans-serif';
+  font-style: normal;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  margin: 0 2px 0 12px;
+}
+:lang(zh-cn) .PresentationModeBanner-text {
+  font-family: gotham, Hiragino Sans GB, STHeiti, Microsoft Yahei, helvetica, arial, sans-serif;
+}
+:lang(ja) .PresentationModeBanner-text {
+  font-family: gotham, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, "MS P\30B4\30B7\30C3\30AF", "MS PGothic", helvetica, arial, sans-serif;
+}
+.PresentationModeBanner-button {
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 0 8px;
+  font-size: 15px;
+  font-family: gotham, 'helvetica, arial, sans-serif';
+  font-style: normal;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 25px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+:lang(zh-cn) .PresentationModeBanner-button {
+  font-family: gotham, Hiragino Sans GB, STHeiti, Microsoft Yahei, helvetica, arial, sans-serif;
+}
+:lang(ja) .PresentationModeBanner-button {
+  font-family: gotham, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, "MS P\30B4\30B7\30C3\30AF", "MS PGothic", helvetica, arial, sans-serif;
+}
+.PresentationModeBanner-button.PresentationModeBanner-white {
+  background-color: white;
+  color: #2dbe60;
+}
+.PresentationModeBanner-button.PresentationModeBanner-green {
+  background-color: #2dbe60;
+  color: white;
+}
+.PresentationModeBanner-close-icon {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  bottom: 0;
+  margin: auto 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.PresentationModeBanner-close-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.PresentationModeBanner-close-icon path {
+  fill: white;
+}
+</style><style type="text/css">/**
+ * Copyright 2012-2015 Evernote Corporation.
+ */
+/* Copyright 2012, Evernote Corp
+ *
+ * author: Andrei Thorp, athorp@evernote.com
+ */
+/*** Evernote CSS Framework ***/
+#imggal-container {
+  position: relative;
+  z-index: 2147483647;
+}
+.hidden {
+  display: none;
+}
+#imggal-glass {
+  position: fixed;
+  z-index: inherit;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  opacity: 0.95;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=95);
+  filter: alpha(opacity=95);
+}
+#imggal-container:-moz-full-screen #imggal-glass {
+  background-color: #ffffff;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+}
+#imggal-container:-webkit-full-screen #imggal-glass {
+  background-color: #ffffff;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+}
+#imggal-top {
+  position: fixed;
+  z-index: inherit;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+#imggal-top.nav-full {
+  display: none;
+}
+#imggal-top .close-icon {
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  height: 40px;
+  width: 40px;
+  margin: 0 !important;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  background-position: center center !important;
+  background-color: white !important;
+}
+@media all {
+  #imggal-top .close-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #imggal-top .close-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+#imggal-top .close-icon:hover {
+  border-color: #2dbe60;
+}
+@media all {
+  #imggal-top .close-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #imggal-top .close-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+#imggal-top .close-icon:active {
+  border-color: #28a955;
+}
+@media all {
+  #imggal-top .close-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) #imggal-top .close-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-close-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+#imggal-nav,
+#imggal-nav-glass {
+  position: fixed;
+  z-index: inherit;
+  left: 0px;
+  right: 0px;
+  bottom: 10px;
+  width: 232px;
+  height: 52px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+#imggal-nav.nav-full,
+#imggal-nav-glass.nav-full {
+  width: 180px;
+}
+#imggal-nav.nav-no-full,
+#imggal-nav-glass.nav-no-full {
+  width: 192px;
+}
+#imggal-nav.nav-hidden,
+#imggal-nav-glass.nav-hidden {
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+}
+html.ie7 #imggal-nav,
+html.ie7 #imggal-nav-glass {
+  left: 50%;
+  margin-left: -76px;
+}
+#imggal-nav-glass {
+  background-color: #ffffff;
+  border: 1px solid #f1f1f1;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  opacity: 0.96;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=96);
+  filter: alpha(opacity=96);
+}
+.icons {
+  position: static;
+  float: left;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.icons:hover {
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+}
+.icons.grayed-out,
+.icons.grayed-out:hover {
+  cursor: default;
+  opacity: 0.3;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  filter: alpha(opacity=30);
+}
+html.ie8 .nav-hidden > .icons {
+  filter: inherit;
+}
+/* nav bar icons  */
+.prev-icon {
+  height: 24px;
+  width: 24px;
+  margin-left: 11px;
+  margin-right: 13px;
+}
+@media all {
+  .prev-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .prev-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .prev-icon:hover:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .prev-icon:hover:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .prev-icon:active:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .prev-icon:active:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-back-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.next-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 12px;
+}
+@media all {
+  .next-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .next-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .next-icon:hover:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .next-icon:hover:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .next-icon:active:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .next-icon:active:not(.grayed-out) {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-next-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.download-icon {
+  height: 24px;
+  width: 24px;
+  margin-left: 14px;
+  margin-right: 14px;
+}
+@media all {
+  .download-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .download-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .download-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .download-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .download-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .download-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-download-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.new-tab-icon {
+  height: 24px;
+  width: 24px;
+  margin-left: 17px;
+  margin-right: 13px;
+}
+@media all {
+  .new-tab-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .new-tab-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .new-tab-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .new-tab-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .new-tab-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .new-tab-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-new-tab-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.full-screen-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 16px;
+}
+@media all {
+  .full-screen-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .full-screen-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .full-screen-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .full-screen-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .full-screen-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .full-screen-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.nav-full > .full-screen-icon,
+.nav-no-full > .full-screen-icon {
+  display: none;
+}
+.nav-full > .close-icon,
+.nav-full > .download-icon {
+  display: none;
+}
+.close-full-screen-icon {
+  display: none;
+}
+.nav-full > .close-full-screen-icon {
+  display: block;
+  height: 24px;
+  width: 24px;
+  margin-right: 16px;
+}
+@media all {
+  .nav-full > .close-full-screen-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .nav-full > .close-full-screen-icon {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .nav-full > .close-full-screen-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close-hover.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .nav-full > .close-full-screen-icon:hover {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close-hover@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all {
+  .nav-full > .close-full-screen-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close-active.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+@media all and (-moz-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3/2), all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5), all and (min-resolution: 1.5dppx) {
+  html:not(.ie8) .nav-full > .close-full-screen-icon:active {
+    background:  url('/redesign/global/js/component/ImageGallery/img/gallery-full-screen-close-active@2x.png') no-repeat;
+    -webkit-background-size: 24px 24px;
+    -moz-background-size: 24px 24px;
+    -o-background-size: 24px 24px;
+    background-size: 24px 24px;
+  }
+}
+.gallery-divider {
+  float: left;
+  margin-top: 12px;
+  margin-bottom: 13px;
+  height: 27px;
+  border-left: 1px solid #e1e1e1;
+}
+#imggal-images {
+  top: 25px;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  position: fixed;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: inherit;
+}
+#imggal-container:-moz-full-screen #imggal-images {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#imggal-container:-webkit-full-screen #imggal-images {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.image {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  position: absolute;
+  transition: transform 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+}
+.image.off-screen {
+  transition: transform 0.2s ease, visibility 0s linear 0.2s;
+  -moz-transition: -moz-transform 0.2s ease, visibility 0s linear 0.2s;
+  -webkit-transition: -webkit-transform 0.2s ease, visibility 0s linear 0.2s;
+  visibility: hidden;
+}
+.image.off-screen.dragged {
+  visibility: visible;
+}
+.image.dragged,
+.image.no-swipe {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.imggal-modal {
+  overflow: hidden;
+}
+/* Copyright 2012, Evernote Corp
+ *
+ * author: Andrei Thorp, athorp@evernote.com
+ */
+/*** Evernote CSS Framework ***/
+.sharing-menu {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+  font-size: 11px;
+  font-weight: bold;
+  color: #4d4d4d;
+}
+.sharing-menu:hover,
+.sharing-menu:active {
+  border-color: #8C8C8C;
+}
+.sharing-menu .label-container,
+.sharing-menu .icon-container {
+  cursor: pointer;
+}
+.sharing-menu .label-container {
+  display: none;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  height: 27px;
+}
+.sharing-menu .label {
+  font-family: helvetica, arial, sans-serif;
+  display: inline-block;
+  font-weight: 300;
+  font-size: 13px;
+  padding: 5px 5px 7px 15px;
+}
+.sharing-menu .label-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  border-width: 5px 0 0 0;
+  border-style: solid;
+  border-color: transparent;
+  padding-right: 4px;
+  vertical-align: top;
+}
+.sharing-menu .icon-container {
+  width: 16px;
+  height: 16px;
+}
+.sharing-menu .menu-bar {
+  background: white;
+  padding: 7px 0;
+  border: 1px solid #b3b3b3;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 4px #cccccc;
+  -moz-box-shadow: 0 2px 4px #cccccc;
+  box-shadow: 0 2px 4px #cccccc;
+  font-weight: bold;
+  font-size: 11px;
+  color: #08c;
+  position: absolute;
+  display: none;
+}
+.sharing-menu .menu-bar-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+.sharing-menu .menu-bar-label {
+  font-family: helvetica, arial, sans-serif;
+  display: inline-block;
+}
+.sharing-menu .menuBarDivLabel,
+.sharing-menu .menuBarDivIcon {
+  vertical-align: middle;
+}
+.sharing-menu .menu-bar-div {
+  height: 16px;
+  padding: 3px 10px;
+  cursor: pointer;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sharing-menu .selected {
+  background-color: #ebebeb;
+}
+</style><script type="text/javascript" async="" charset="utf-8" id="utag_evernote.evernote-web_2" src="./UNIT 3_files/utag.2.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="requirePlugins/require-css/css" src="./UNIT 3_files/css.js"></script><script type="text/javascript" async="" charset="utf-8" id="tiqapp" src="./UNIT 3_files/utag.v.js"></script><link type="text/css" rel="stylesheet" href="./UNIT 3_files/NormalSharingMenu.css"></head><body class=""><script type="text/javascript">
+    
+    (function(a,b,c,d){
+     a='//tags.tiqcdn.com/utag/evernote/evernote-web/prod/utag.js';
+     b=document;c='script';d=b.createElement(c);d.src=a;
+     d.type='text/java'+c;d.async=true;
+     a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a)
+    })();
+  </script>
+<div class="single-note-page-wrapper mod-new-design js-new-design-single-note-page">
+          <div class="header-and-content-wrapper mod-bottom-sticky-footer-adjuster">
+            <div class="header mod-single-note-page-header js-sticky-header is-page-scrolled">
+              <a href="https://evernote.com/" target="_blank" class="header-left-image mod-single-note-page-header-logo ">
+                  </a>
+                <div class="header-right-menu mod-single-note-page-header">
+                <a class="header-right-menu-item Btn mod-single-note-page-header-button js-view-note is-hidden" href="https://www.evernote.com/shard/s513/sh/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2#" style="display: none;">
+                    View in Evernote</a>
+                  <a class="header-right-menu-item Btn mod-single-note-page-header-button js-save-note " href="https://www.evernote.com/shard/s513/sh/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2#">
+                    Save to Evernote</a>
+                <div class="header-right-menu-item mod-single-note-page-header-profile-picture js-profile-picture is-hidden">
+                    <img alt="Profile picture" class="profile-picture mod-single-note-page-header-profile-picture is-hidden js-profile-picture js-show-user-dropdown-menu">
+                    <div class="vertical-menu mod-profile-picture-dropdown is-hidden js-user-dropdown-menu">
+                      <a href="https://www.evernote.com/Home.action" class="vertical-menu-item mod-single-note-page-dropdown-item">
+                          Go to notes</a>
+                      <a class="vertical-menu-item mod-single-note-page-dropdown-item js-switch-account">
+                        Switch Account</a>
+                      <a class="vertical-menu-item mod-single-note-page-dropdown-item js-logout">
+                        Sign Out</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="main-content mod-single-note-page-content">
+              <div class="NewSharedNoteView"><div id="container-boundingbox" class="wrapper">
+    <div id="container" class="mod-single-note-page-new-design wrapper">
+      <div class="header mod-single-note-page-content">
+        <h1 class="header-one-line-text mod-single-note-page-content-header-title">
+          UNIT 3</h1>
+        <span class="header-one-line-text mod-single-note-page-content-header-update-time">
+          Updated Jun 22, 2017</span>
+        </div>
+
+      <script type="text/javascript">
+        
+        window._onNoteContentLoaded = function() {
+          
+          window._onNoteContentLoaded = function() {
+            window._isNoteContentLoaded = true;
+          };
+
+          var url = '/shard/s513/sh/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2?content=';
+          document.querySelector('#note-content-iframe').src = url;
+        };
+      </script>
+
+      <div id="loading-placeholder" class="loading" style="display: none;"></div>
+      <iframe id="note-content-iframe" src="./UNIT 3_files/fbb49c134d873e627f1a87ec14aa7ca2.html" onload="window._onNoteContentLoaded();" class="note-content mod-note-page-note-content" frameborder="0" border="0" scrolling="no" style="border: 0px; overflow: hidden; height: 13005px; display: inline;">
+      </iframe>
+
+      <div class="footer mod-single-note-page-content">
+        <div class="menu-bar mod-single-note-page-content-footer">
+          <div class="menu-bar-left-menu">
+            <div id="js-share-twitter-mount-point" class="menu-bar-left-menu-item"><div data-reactroot="" class="focus-tooltip-WithTooltip-tooltip-transition "><a class=" menu-bar-left-menu-item mod-single-note-page-content-footer-twitter-sharing js-share-on-twitter"></a><span></span></div></div>
+            <div id="js-share-facebook-mount-point" class="menu-bar-left-menu-item"><div data-reactroot="" class="focus-tooltip-WithTooltip-tooltip-transition "><a class=" menu-bar-left-menu-item mod-single-note-page-content-footer-facebook-sharing js-share-on-facebook"></a><span></span></div></div>
+            <div id="js-share-linkedin-mount-point" class="menu-bar-left-menu-item"><div data-reactroot="" class="focus-tooltip-WithTooltip-tooltip-transition "><a class=" menu-bar-left-menu-item mod-single-note-page-content-footer-linkedin js-share-on-linkedin"></a><span></span></div></div>
+            <a id="copy" class="menu-bar-left-menu-item mod-single-note-page-content-footer-link js-share-link"><div style="position: relative; top: 0px; bottom: 0px; width: 100%; height: 100%;"></div></a>
+          </div>
+          <div class="menu-bar-right-menu">
+            <div id="js-report-spam-mount-point" class="menu-bar-right-menu-item"><div data-reactroot="" class="focus-tooltip-WithTooltip-tooltip-transition "><a class=" menu-bar-right-menu-item mod-single-note-page-content-footer-report-spam js-report-note-spam"></a><span></span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="single-note-content-toast" id="js-note-toast"><!-- react-empty: 1 --></div>
+  <div class="clearfix" style="clear: both;"></div>
+  <div id="js-single-note-tooltip"></div>
+  
+
+  
+
+  <script>
+    /* If defaulting to presentation mode, don't wait for the JS to load before hiding
+     * single note view UI. This is a hack that should be removed if WEB-47463
+     * is successful. */
+    if (false) {
+      // We may not have the es5 shim at this point, so don't use classList.
+      document.body.className += ' presentation-mode-showing';
+    }
+  </script>
+
+  <div class="presentation-mode-container">
+    <div class="presentation-mode-style-switcher">
+      <div class="presentation-mode-style-button day on">
+<svg data-name="UI Design" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68"><defs><style>.cls-1{opacity:0;}.cls-2{fill:#b9f5fa;}.cls-3{fill:#646464;}.cls-4{fill:none;stroke:#646464;stroke-miterlimit:10;stroke-width:4px;}</style></defs><title>Mac-PM-v2.0 GeneralAssets</title><g class="cls-1"><circle class="cls-2" cx="34" cy="34" r="34"></circle></g><path class="cls-3" d="M34,30.08a4,4,0,1,1-4,4,4,4,0,0,1,4-4m0-4a8,8,0,1,0,8,8,8,8,0,0,0-8-8Z"></path><line class="cls-4" x1="34" y1="15.66" x2="34" y2="21.66"></line><line class="cls-4" x1="34" y1="52.5" x2="34" y2="46.5"></line><line class="cls-4" x1="15.58" y1="34.08" x2="21.58" y2="34.08"></line><line class="cls-4" x1="52.42" y1="34.08" x2="46.42" y2="34.08"></line><line class="cls-4" x1="20.97" y1="21.05" x2="25.22" y2="25.3"></line><line class="cls-4" x1="47.03" y1="47.1" x2="42.78" y2="42.86"></line><line class="cls-4" x1="20.97" y1="47.1" x2="25.22" y2="42.86"></line><line class="cls-4" x1="47.03" y1="21.05" x2="42.78" y2="25.3"></line></svg>
+      </div>
+      <div class="presentation-mode-style-button night">
+<svg data-name="UI Design" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68"><defs><style>.cls-1{opacity:0;}.cls-2{fill:#b9f5fa;}.cls-3{fill:#646464;}</style></defs><title>Mac-PM-v2.0 GeneralAssets</title><g class="cls-1"><circle class="cls-2" cx="34" cy="34" r="34"></circle></g><path class="cls-3" d="M37.18,19.82q.52,0,1,0a21.13,21.13,0,0,0,0,28.28q-.51,0-1,0a14.18,14.18,0,1,1,0-28.35m0-3.82a18,18,0,1,0,9.11,33.51,17.26,17.26,0,0,1,0-31A17.89,17.89,0,0,0,37.18,16Z"></path></svg>
+      </div>
+    </div>
+  </div>
+
+  <div id="presentation-mode-tooltip-mount-point"></div>
+  <div id="presentation-mode-banner-mount-point"></div>
+</div><div class="EncryptedTextDialog">
+</div><div id="registration-footer">
+    <div class="wrapper">
+      <div class="text">
+        Use Evernote to create, collect, and share everything that matters in your personal and professional life. Get started now.</div>
+      <a class="button" id="createAccountFooter">
+        Create an Account</a>
+    </div>
+    <div id="hide-user-reg-footer" class="close js-close-user-reg-footer"></div>
+  </div>
+  <div class="logout-success-message hidden">
+    You have successfully logged out of your Evernote account.</div>
+  <div class="logout-sign-in hidden">
+    Sign in</div>
+
+  <input type="hidden" name="noteOwnerId" value="94057703">
+  <div class="LinkUrlDialog">
+</div><div class="SingleNoteAppInstallBox">
+</div></div>
+          </div>
+          <div class="footer mod-single-note-page-footer">
+    <div class="footer-save-note-suggestion-container is-hidden" style="display: block;">
+      <p class="footer-save-note-suggestion-text">
+        Want to save this note?</p>
+      <a id="footer-sign-in-up-target" class="Btn footer-save-note-suggestion-sign-in-up js-show-sign-in">
+        Sign In/Sign Up</a>
+    </div>
+
+    <div class="footer-download-evernote-desktop-container is-hidden" style="display: none;">
+      <p class="footer-download-evernote-desktop-text">
+        Take notes to a new level</p>
+      <a id="footer-download-desktop-target" href="https://evernote.com/download/" class="Btn footer-download-evernote-desktop" target="_blank">Get Evernote for Mac</a></div>
+
+    <div class="footer-download-web-clipper-container is-hidden" style="display: none;">
+      <p class="footer-download-web-clipper-text">
+        Add a save button to the internet</p>
+      <a id="footer-download-clipper-target" href="https://evernote.com/webclipper/" class="Btn footer-download-web-clipper" target="_blank">Get Web Clipper</a></div>
+
+    <div class="footer-premium-subscription-suggestion-container is-hidden" style="display: none;">
+      <p class="footer-premium-subscription-suggestion-text">
+        Take better notes with Evernote Premium</p>
+      <a id="footer-upgrade-target" href="https://evernote.com/pricing/" class="Btn footer-learn-more" target="_blank">Learn more</a></div>
+
+    <div class="footer-learn-more-evernote-container is-hidden" style="display: none;">
+       <p class="footer-learn-more-evernote-text">
+        Get the latest Evernote tips from our Help &amp; Learning Center</p>
+      <a id="footer-help-target" href="http://help.evernote.com/hc" class="Btn footer-learn-more" target="_blank">Learn more</a></div>
+
+    <div class="marketing-links-container">
+        <a href="https://evernote.com/tos/" class="footer-entry" target="_blank">Terms of Service</a><a href="https://evernote.com/privacy/" class="footer-entry last" target="_blank">Privacy Policy</a></div>
+    </div>
+</div>
+      <script type="text/javascript" src="./UNIT 3_files/850411625.js"></script><script type="text/javascript">window.__EVERNOTE_ACTIONBEAN__ = {"saveNoteUri":"https://www.evernote.com/saveNote/s513/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2","shareNoteUri":"/shard/s513/sh/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2?shareNote&service=","sharerIsPremium":false,"sharedNotebookGlobalId":null,"showFacebook":true,"showTwitter":true,"openInAppUrl":"evernote:///view/94057703/s513/1f84944a-ea9d-4bb2-8b8f-31719fee2206/1f84944a-ea9d-4bb2-8b8f-31719fee2206/","businessNotebookNote":false,"noteNotebookJoined":false,"needsLinkedNotebookGuid":false,"showBoxOnVisit":false,"showSharingMenu":true,"showUserDropdown":true,"blockAllUpsellThings":false,"presentationModeUsable":false,"loginUri":"https://www.evernote.com/MicroEmbedLogin.action?code=noteshare&targetUrl=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs513%2Fsharing%2FSharedNoteInfo.action%3FnoteGuid%3D1f84944a-ea9d-4bb2-8b8f-31719fee2206%26noteKey%3Dfbb49c134d873e627f1a87ec14aa7ca2%26fromSingleSharedNote%3Dtrue","copyLinkSuccessfulMessage":"Link copied to clipboard.","presentationModeDataUrl":"/shard/s513/sh/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2?presentationModeData=","presentationModeVariantString":null,"startInPresentationMode":false,"presentationModeLearnMoreUrl":"http://help.evernote.com/hc/articles/208314488-How-to-use-presentation-mode-to-present-notes","reloadOnLoginChange":true,"downloadUrl":"https://evernote.com/download","userLoggedIn":false,"logoutUri":"https://www.evernote.com/Logout.action?defaultResolution=true","spamDomains":["actvtrack.com","adultchatsales.com","besthottiesonline.com","bestchatlinks.com","bigdvdmovies.com","businessinside.pw","caminyourcity.com","chatterscash.com","citysex.com","creditcardonline.pw","creditcardtips.pw","cstracking1.com","discounted-purchase.com","dollarsanddoughs.com","echatgold.com","freecasinogames.pw","getcashnow.pw","hookup.com","joespov.com","legalentity.pw","lilipt.com","localsexfriends.com","lovebyt.es","lovetrap.com","lustfulmodels.com","netlinktrack.com","nodepositcasino.pw","overnightlover.com","plentyofnaughty.com","preciouscams.com","seeme.com","shrib.com","teenport.com","xprofiles.com"],"reportSpamUri":"/shard/s513/sh/1f84944a-ea9d-4bb2-8b8f-31719fee2206/fbb49c134d873e627f1a87ec14aa7ca2?reportSpam","lightboxLoginUri":"https://www.evernote.com/MicroEmbedLogin.action?analyticsLoginOrigin=snv_popup&targetUrl=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs513%2Fsharing%2FSharedNoteInfo.action%3FswitchAccount%3D%26noteGuid%3D1f84944a-ea9d-4bb2-8b8f-31719fee2206%26noteKey%3Dfbb49c134d873e627f1a87ec14aa7ca2","showLinkedIn":true,"registrationUri":"https://www.evernote.com/MicroEmbedRegistration.action?code=noteshare&targetUrl=https%3A%2F%2Fwww.evernote.com%2Fshard%2Fs513%2Fsharing%2FSharedNoteInfo.action%3FnoteGuid%3D1f84944a-ea9d-4bb2-8b8f-31719fee2206%26noteKey%3Dfbb49c134d873e627f1a87ec14aa7ca2%26fromSingleSharedNote%3Dtrue","webclipperInstalledOnSameBrowser":false,"visitorHavingEvernoteDesktopApp":false,"visitorPremiumUser":false,"skitchJsonLocation":"","skitchAnnotatedPdfLocation":"","pdfUrls":[],"userStatus":"","noteUpdated":1498129118000,"skitchNote":false,"skitchImageNote":false,"normalSharedNote":true,"currentUsn":61863,"userShard":null,"appNotInstalled":false,"images":false,"webClip":false,"viewOnWebUrl":"https://www.evernote.com/Home.action#n=1f84944a-ea9d-4bb2-8b8f-31719fee2206&ses=4&sh=2&sds=2&b=f59ea870-b919-4510-aa42-33b6b600f1c6&","joinNotebookUrl":"https://www.evernote.com/shard/s513/business/JoinOrLeaveNotebook.action?joinNotebook=","cookieName":"enAppInstalled","appInstalled":false,"notebookGuid":"f59ea870-b919-4510-aa42-33b6b600f1c6","mobileUserAgent":false,"skitchPdfNote":false,"platform":"mac","userName":null,"endpoints":{"businessServiceUrl":null,"userStoreUrl":null,"utilityUrl":null,"messageStoreUrl":null,"noteStoreUrl":null,"userStoreUrlForBusiness":null,"utilityUrlForBusiness":null,"noteStoreUrlForBusiness":null,"noteStoreUrlForBusinessAdmin":null},"businessShardId":null,"currentUserId":null,"userPrivilege":null,"userServiceLevel":null,"websocketUrl":"wss://ws.www.evernote.com/shard/null/id","headerJson":{},"thriftEndpointBuilderConfig":{"communicationEngineUrlSuffix":"/communicationengine","messageStoreUrlSuffix":"/messagestore","noteStoreUrlSuffix":"/notestore","userStoreUrlSuffix":"/edam/user","shardUrlPrefix":"https://www.evernote.com/shard/","businessServiceUrlSuffix":"/edam/business","utilityStoreUrlSuffix":"/utility"},"userShardId":null};</script><script type="text/javascript">require(['es6'], function() {});</script><script type="text/javascript">define("actionBean", [], function() {return window.__EVERNOTE_ACTIONBEAN__;});</script><script type="text/javascript" src="./UNIT 3_files/i18nMessages.js"></script><script type="text/javascript" src="./UNIT 3_files/-648301440.js"></script><!--[if !IE]><!--><script>if (/*@cc_on!@*/false) document.documentElement.className += ' ie10';</script><!--<![endif]--></body></html>
