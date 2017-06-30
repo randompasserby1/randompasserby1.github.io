@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Image Gallery</title>
+        <meta charset="utf-8">
+        <style>
+                *{
+                        box-sizing: border-box;
+                }
+                #banner img {
+                        max-width: 100%;
+                        max-height:300px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        display: block;
+                        border:solid;
+                        border-color: rgb(250, 100, 100);
+                }
+                .img1 img {
+                        max-width: 30%;
+                        max-height: 300px;
+                        margin: 5px;
+                        float: left;
+                        border: solid;
+                        border-color: rgb(25, 100, 200);
+                }
+                .all {
+                        max-width: 1300px;
+                        margin: auto;
+                        position: absolute;       
+                }
+                .all:hover img{
+                        transition: all 0.5s ease;
+                        border: 5px solid;
+                        border-color: rgb(50, 200, 100);
+                }
+                img {
+                        transition: all 0.5s ease
+                }
+        </style>
+</head>
+<body>
+        <div class="all">
+                <div id="banner"><img src="http://images3.wikia.nocookie.net/__cb20130116204306/finalfantasy/images/f/fb/XIII-2_PromoPoster-Withoutwatermark2.jpg" alt="Banner-for-FFXIII-series" title="Banner-for-FFXIII-series">
+                </div>
+                <a href="index.html">Page 1</a>
+                <a href="Page 2.html">Page 2</a>
+                <a href="Page 3.html">Page 3</a>
+                <div class="img1"><img src="http://www.absolutelyanime.com/wp-content/uploads/2015/01/lightning-final-fantasy-xiii-7757.jpg" alt="Lightning+logo" title="Ligtning+logo">
+                        <img src="http://www.xboxachievements.com/images/news/final-fantasy-xiii-header.jpg" alt="Gran-Pulse" title="Gran-Pulse">
+                        <img src="https://images6.alphacoders.com/675/thumb-1920-675915.jpg" alt="FFXIII-3" title="FFXIII-3">
+                </div>
+        </div>
+</body>
+</html>
