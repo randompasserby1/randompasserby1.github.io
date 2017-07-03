@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pictures</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{box-sizing: border-box;}
+		.all{
+			max-width: 1300px;
+			text-align: center;
+		}
+		.pic img{
+				max-width: 100%;
+				max-height: 200px;
+				vertical-align: middle;
+				margin: 5px;
+				opacity: 0.1;
+				transition: 1s linear;
+		}
+		.pic img:hover{
+			opacity: 1;
+		}
+		p{
+			position: absolute;
+			animation-name: abc;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+		}
+		@keyframes abc{
+			0%{bottom: 350px; right: 500px;}
+			50%{bottom: 350px; right: 600px; opacity: 0;}
+			75%{bottom: 350px; right: 400px; opacity: 0;} 
+			100%{bottom: 350px; right: 500px;}
+		}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<h1>Persona 5</h1>
+			<div class="pic">
+				<img src="http://cf.c.ooyala.com/FvdmluYTE6FNCF-TQYInFfrO2JdzoXVQ/promo315600470">
+				<img src="http://cdn1-www.playstationlifestyle.net/assets/uploads/gallery/persona-5-info-dump/persona5.jpg">
+				<img src="https://media.playstation.com/is/image/SCEA/persona-5-screen-08-ps4-us-30jun16?$MediaCarousel_Original$">
+				<img src="https://vignette2.wikia.nocookie.net/megamitensei/images/1/1a/P5OST.png/revision/latest?cb=20170419062007">
+				<img src="http://gematsu.com/wp-content/uploads/2016/09/Persona-5-Compare_09-07-16_003.jpg">
+				<img src="https://i.ytimg.com/vi/kLpWbxdu4lI/maxresdefault.jpg">
+			</div>
+			<p>Created by Giang Le</p>
+		</div>
+	</body>
+	</html>
