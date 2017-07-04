@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Thiệp chúc mừng</title>
+	<meta charset="utf-8">
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		body { background-color:#333; }
+		#snow{
+			background: none;
+			font-family: Androgyne;
+			background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			animation: snow 5s linear infinite;
+		}
+		@keyframes snow {
+			0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+			50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+			100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+		}
+		img{
+			max-width: 100%;
+			max-height: 900px;
+			vertical-align: middle;
+			position: absolute;
+			left: 250px;
+		}
+		p{
+			font-size: 70px;
+			position: absolute;
+			bottom: 150px;
+			left: 700px;
+			color: rgb(240,150 ,170 );
+			animation: New-Year 10s infinite
+		}
+		@keyframes New-Year{
+			0%{opacity: 1;}
+			50%{opacity: 0;}
+			100%{opacity: 1;}
+		}
+	</style>
+</head>
+<body>
+	<div id="snow">
+	</div>
+	<img src="http://merrychristmas.vn/uploads/2012/12/hinh-nen-dep-ve-giang-sinh-7.jpg">
+	<p>& A Happy New Year</p>
+
+</body>
+</html>
