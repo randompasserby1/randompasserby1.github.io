@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style type="text/css">
+		#cal{
+			position: relative;
+			width: 500px;
+			border: 5px solid purple;
+			border-radius: 15px;
+			text-align: center;
+			left: 600px;
+			top: 150px;
+		}
+		input[type = button]{
+			background: lightBlue;
+			width: 20%;
+			font-size: 20px;
+			font-weight: 1000;
+			margin: 2%;
+		}
+		input[type = text]{
+			position: relative;
+			display: block;
+			width: 90%;
+			margin: 5px auto;
+			font-size: 20px;
+		}
+	</style>
+	
+</head>
+<body>
+	<div id="cal">
+		<form name="calculator">
+			<input type="text" name="answer" id="back">
+			<br>
+
+			<input type="button" value ="1" onclick="calculator.answer.value+='1'">
+			<input type="button" value ="2" onclick="calculator.answer.value+='2'">
+			<input type="button" value ="3" onclick="calculator.answer.value+='3'">
+			<input type="button" value ="+" onclick="calculator.answer.value+='+'">
+			<br>
+
+			<input type="button" value ="4" onclick="calculator.answer.value+='4'">
+			<input type="button" value ="5" onclick="calculator.answer.value+='5'">
+			<input type="button" value ="6" onclick="calculator.answer.value+='6'">
+			<input type="button" value ="-" onclick="calculator.answer.value+='-'">
+			<br>
+
+			<input type="button" value ="7" onclick="calculator.answer.value+='7'">
+			<input type="button" value ="8" onclick="calculator.answer.value+='8'">
+			<input type="button" value ="9" onclick="calculator.answer.value+='9'">
+			<input type="button" value ="x" onclick="calculator.answer.value+='*'">
+			<br>
+
+			<input type="button" value="%" onclick="calculator.answer.value+='%'">
+			<input type="button" value ="0" onclick="calculator.answer.value+='0'">
+			<input type="button" value="." onclick="calculator.answer.value+='.'">
+			<input type="button" value ="÷" onclick="calculator.answer.value+='/'">
+			<br>
+
+			<input type="button" value="sin" onclick="calculator.answer.value=Math.sin(calculator.answer.value)">
+			<input type="button" value="cos" onclick="calculator.answer.value=Math.cos(calculator.answer.value)">
+			<input type="button" value="tan" onclick="calculator.answer.value=Math.tan(calculator.answer.value)">
+			<input type="button" value="x^2" onclick="calculator.answer.value=Math.pow(calculator.answer.value, 2)">
+			
+			<br>
+			<input type="button" value ="=" onclick="calculator.answer.value=eval(calculator.answer.value)">
+			<input type="button" value ="AC" onclick="calculator.answer.value=''">
+			<input type="button" value="DEL" onclick="press()">
+			<input type="button" value="√x" onclick="calculator.answer.value=Math.sqrt(calculator.answer.value)">
+
+
+		</form>
+	</div>
+	<script type="text/javascript">
+		function press(){
+			var val = document.getElementById('back').value;
+			document.getElementById('back').value = val.slice(0,-1)
+		}
+	</script>
+</body>
+</html>
