@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table</title>
+	<meta charset="utf-8">
+	<script src="sorttable.js"></script>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		img{
+			width: 200px;
+			max-height: 150px;
+		}
+		table,th,td{
+			border: 2px solid black;
+			border-collapse: collapse;
+		}
+		th,td{
+			padding: 10px;
+		}
+		table{
+			border-spacing: 5px;
+		}
+		.container{
+			max-width: 1500px;
+			position: relative;
+			left: 20%;
+		}
+		.caption{
+			position: relative;
+			left: 30%;
+		}
+		td{
+			text-align: center;
+		}
+		.highlight:hover{
+			background-color: #d99ffb;
+		}
+		input[type = button]{
+			position: relative;
+			left: 5px;
+		}
+		table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after{ 
+			content: " \25B4\25BE" 
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2 class="caption">Danh sách nhân viên</h2> 
+		<table class="sortable">
+			<tr>
+				<th>Ảnh</th>
+				<th onclick="sort()">Tên</th>
+				<th onclick="sort()">Giới tính</th>
+				<th onclick="sort()">Email</th>
+				<th onclick="sort()">Số điện thoại</th>
+			</tr>
+			<tr>
+				<td><img src="http://bogleech.com/vgmonsters/bb-snakeball2.jpg"></td>
+				<div class="highlight">
+					<td><span class="highlight">Snake</span></td>
+					<td><span class="highlight">Nam</span></td>
+					<td><span class="highlight">NotThatSnake@gmail.com</span></td>
+					<td><span class="highlight">196043705</span></td>
+				</div>
+				
+			</tr>
+			<tr>
+				<td><img src="https://u.cubeupload.com/zs0qbv.jpg"></td>
+				<td><span class="highlight">Pig</span></td>
+				<td><span class="highlight">Nữ</span></td>
+				<td><span class="highlight">WeHaveBaconTonight@hotmail.com</span></td>
+				<td><span class="highlight">572195279</span></td>
+			</tr>
+			<tr>
+				<td><img src="http://pm1.narvii.com/6369/c7dc4ee2e2e124f01056913840d3f3315c930b68_hq.jpg"></td>
+				<td><span class="highlight">VaginaFace</span></td>
+				<td><span class="highlight">Nam</span></td>
+				<td><span class="highlight">VaginaFace@yahoomail.com</span></td>
+				<td><span class="highlight">202097305</span></td>
+			</tr>
+			<tr>
+				<td><img src="https://1.bp.blogspot.com/-_tZkrCVLSY4/WMn-mGZJutI/AAAAAAAABF4/LSLLkTK5ZEUwc-hzazACaArhNCzE6yCogCEw/s1600/brainsucker.jpg"></td>
+				<td><span class="highlight">BRAINS!!!!</span></td>
+				<td><span class="highlight">Nữ</span></td>
+				<td><span class="highlight">BRAINS!!!!@gmail.com</span></td>
+				<td><span class="highlight">247352030</span></td>
+			</tr>
+			<tr>
+				<td><img src="http://www.gamerheadlines.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-15-at-2.07.16-PM-720x395.jpg"></td>
+				<td><span class="highlight">Abandoned child of Donkey in Shrek</span></td>
+				<td><span class="highlight">Nam</span></td>
+				<td><span class="highlight">Abandoned@hotmail.com</span></td>
+				<td><span class="highlight">999828296</span></td>
+			</tr>
+			<tr>
+				<td><img src="https://1.bp.blogspot.com/-VTwsJk5lKDw/VfToub9f1jI/AAAAAAAAD5k/6cQpRbsMYsc/s640/bloodlicker.jpg"></td>
+				<td><span class="highlight">Mosquito</span></td>
+				<td><span class="highlight">Nam</span></td>
+				<td><span class="highlight">MakeSureToBurnItWithFire@gmail.com</span></td>
+				<td><span class="highlight">862629637</span></td>
+			</tr>
+			<tr>
+				<td><img src="http://2.bp.blogspot.com/-Y9vkEkOoL2Q/VS67KUghJnI/AAAAAAAACBU/4sRmH1pY0Cs/s1600/Bloodborne%2B04.jpg"></td>
+				<td><span class="highlight">Really Big Cat</span></td>
+				<td><span class="highlight">Nữ</span></td>
+				<td><span class="highlight">CatsWillJustBeCats@gmail.com</span></td>
+				<td><span class="highlight">599825159</span></td>
+			</tr>
+			<tr>
+				<td><img src="https://i.ytimg.com/vi/p70HgAuLQpA/hqdefault.jpg"></td>
+				<td><span class="highlight">BRAINS!!!! gonna love this</span></td>
+				<td><span class="highlight">Nữ</span></td>
+				<td><span class="highlight">BigBrain=HighIntel@gmail.com</span></td>
+				<td><span class="highlight">502983825</span></td>
+			</tr>
+		</table>
+	</div>
+	
+</body>
+</html>
